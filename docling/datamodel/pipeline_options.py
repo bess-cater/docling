@@ -161,6 +161,18 @@ class TesseractOcrOptions(OcrOptions):
         extra="forbid",
     )
 
+class PaddleOcrOptions(OcrOptions):
+    """Options for the PaddleOCR engine."""
+
+    kind: ClassVar[Literal["paddleocr"]] = "paddleocr"
+    lang: List[str] = ["en"]
+    use_doc_orientation_classify: bool = False
+    use_doc_unwarping: bool = False
+    use_textline_orientation: bool = False
+
+    model_config = ConfigDict(
+        extra="forbid",
+    )
 
 class OcrMacOptions(OcrOptions):
     """Options for the Mac OCR engine."""

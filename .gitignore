@@ -401,7 +401,7 @@ tags
 # Persistent undo
 [._]*.un~
 
-
+*.pyc
 ### Visual Studio Code ###
 .vscode/
 
