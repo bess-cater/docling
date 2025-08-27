@@ -22,6 +22,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from pykospacing import Spacing
 
 _log = logging.getLogger(__name__)
+import tensorflow as tf
 
 
 class PaddleOcrModel(BaseOcrModel):
@@ -138,7 +139,7 @@ class PaddleOcrModel(BaseOcrModel):
                         cells = [
                             TextCell(
                                 index=ix,
-                                text=self.spacer(text_, ignore='pre2'),
+                                text=self.spacer(text_, ignore='pre2') if 'korean' in self.options.lang else text_,
                                 #text = text_,
                                 orig=text_,
                                 from_ocr=True,
